@@ -23,18 +23,29 @@ namespace EmlpoyeeWageComputation
         Random random = new Random();
 
         public void GetAttendance()
-        {
-            int empCheck = random.Next(0, 2);
-            if (empCheck == IS_FULL_TIME)
-            {
-                Console.WriteLine("Employee is absent");
-            }
-            else
-            {
-                Console.WriteLine("Employee is present");
-            }
-
+        
+        { int empCheck = random.Next(0, 2);
+                if (empCheck == IS_FULL_TIME)
+                    Console.WriteLine("Employee is absent");
+                else
+                    Console.WriteLine("Employee is present");
         }
 
-    }
+        public void EmpWage()
+
+        {
+
+               int empCheck = random.Next(0, 2);
+                if (empCheck == IS_FULL_TIME)
+                    empHrs = 8;
+                else
+                    empHrs = 0;
+               empWage = empHrs* EMP_RATE_PER_HOUR;
+               Console.WriteLine("Emp Wage:" + empWage);
+               Console.ReadKey();
+                
+            
+
+        }
+    } 
 }
