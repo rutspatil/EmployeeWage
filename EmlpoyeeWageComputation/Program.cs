@@ -14,8 +14,8 @@ namespace EmlpoyeeWageComputation
             EmployeeWageComputation emp = new EmployeeWageComputation();
             //emp.GetAttendance();
             //emp.EmpWage();
-            emp.PartTime();
-
+            //emp.PartTime();
+            emp.CalculateWageSwitch();
         }
     }
 }

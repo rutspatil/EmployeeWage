@@ -17,7 +17,7 @@ namespace EmlpoyeeWageComputation
         private int empHrs = 0;
         private int empWage = 0;
         private int totalempWage = 0;
-        private int tatalEmpHrs = 0;
+        private int totalEmpHrs = 0;
         private int totalworkingdays = 0;
 
         Random random = new Random();
@@ -60,6 +60,28 @@ namespace EmlpoyeeWageComputation
             Console.WriteLine("Emp Wage: " + empWage);
             Console.ReadKey();
         }
+        public void CalculateWageSwitch()
+        { 
+         int empCheck = random.Next(0, 3);
+            switch (empCheck)
+            {
+                    case IS_PART_TIME:
+                        empHrs = 4;
+                        break;
+                    case IS_FULL_TIME:
+                        empHrs = 8;
+                        break;
+                    default:
+                        empHrs = 0;
+                        break;
+            }
+           totalEmpHrs += empHrs;
+           Console.WriteLine("Days#: " + totalworkingdays + " Emp Hrs : " + empHrs);
             
+           int totalEmpWage = totalEmpHrs * EMP_RATE_PER_HOUR;
+           Console.WriteLine("Total Emp Wage: " + totalEmpWage);
+        }
     }
-}
+
+}   
+    
