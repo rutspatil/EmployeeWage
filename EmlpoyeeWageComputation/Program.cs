@@ -15,7 +15,9 @@ namespace EmlpoyeeWageComputation
             //emp.GetAttendance();
             //emp.EmpWage();
             //emp.PartTime();
-            emp.CalculateWageSwitch();
+            //emp.CalculateWageSwitch();
+            emp.CalculateWagesFor20DaysInMonth();
+
         }
     }
 }

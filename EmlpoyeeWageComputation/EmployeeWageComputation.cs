@@ -23,28 +23,28 @@ namespace EmlpoyeeWageComputation
         Random random = new Random();
 
         public void GetAttendance()
-        
+
         { int empCheck = random.Next(0, 2);
-                if (empCheck == IS_FULL_TIME)
-                    Console.WriteLine("Employee is absent");
-                else
-                    Console.WriteLine("Employee is present");
+            if (empCheck == IS_FULL_TIME)
+                Console.WriteLine("Employee is absent");
+            else
+                Console.WriteLine("Employee is present");
         }
 
         public void EmpWage()
 
         {
 
-               int empCheck = random.Next(0, 2);
-                if (empCheck == IS_FULL_TIME)
-                    empHrs = 8;
-                else
-                    empHrs = 0;
-               empWage = empHrs* EMP_RATE_PER_HOUR;
-               Console.WriteLine("Emp Wage:" + empWage);
-               Console.ReadKey();
-                
-            
+            int empCheck = random.Next(0, 2);
+            if (empCheck == IS_FULL_TIME)
+                empHrs = 8;
+            else
+                empHrs = 0;
+            empWage = empHrs * EMP_RATE_PER_HOUR;
+            Console.WriteLine("Emp Wage:" + empWage);
+            Console.ReadKey();
+
+
 
         }
 
@@ -61,10 +61,34 @@ namespace EmlpoyeeWageComputation
             Console.ReadKey();
         }
         public void CalculateWageSwitch()
-        { 
-         int empCheck = random.Next(0, 3);
+        {
+            int empCheck = random.Next(0, 3);
             switch (empCheck)
             {
+                case IS_PART_TIME:
+                    empHrs = 4;
+                    break;
+                case IS_FULL_TIME:
+                    empHrs = 8;
+                    break;
+                default:
+                    empHrs = 0;
+                    break;
+            }
+            empWage = empHrs * EMP_RATE_PER_HOUR;
+            totalempWage += empWage;   //int a=6; a+=10;a=a+10
+            Console.WriteLine("Emp Wage: " + empWage);
+            Console.WriteLine("Total Emp Wage: " + totalempWage);
+        }
+        public void CalculateWagesFor20DaysInMonth()
+        {
+            for (int day = 0; day < NUM_OF_WORKING_DAY; day++)
+            {
+
+                Random random = new Random();
+                int empCheck = random.Next(0, 3);
+                switch (empCheck)
+                {
                     case IS_PART_TIME:
                         empHrs = 4;
                         break;
@@ -74,13 +98,14 @@ namespace EmlpoyeeWageComputation
                     default:
                         empHrs = 0;
                         break;
+                }
+                empWage = empHrs * EMP_RATE_PER_HOUR;
+                totalempWage += empWage;   //int a=6; a+=10;a=a+10
+                Console.WriteLine("Emp Wage: " + empWage);
             }
-           totalEmpHrs += empHrs;
-           Console.WriteLine("Days#: " + totalworkingdays + " Emp Hrs : " + empHrs);
-            
-           int totalEmpWage = totalEmpHrs * EMP_RATE_PER_HOUR;
-           Console.WriteLine("Total Emp Wage: " + totalEmpWage);
-        }
+                Console.WriteLine("Total Emp Wage: " + totalempWage);
+                Console.ReadKey();
+        }   
     }
 
 }   
