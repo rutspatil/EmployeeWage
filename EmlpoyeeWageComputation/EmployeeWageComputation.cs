@@ -105,7 +105,36 @@ namespace EmlpoyeeWageComputation
             }
                 Console.WriteLine("Total Emp Wage: " + totalempWage);
                 Console.ReadKey();
-        }   
+        }
+        public void CalculateWageTill100HrsOr20IsReached()
+        {
+            while (totalEmpHrs <= MAX_HOURS_IN_MONTH && totalworkingdays < NUM_OF_WORKING_DAY)
+            {
+                totalworkingdays++;
+                Random random = new Random();
+                int empCheck = random.Next(0, 3);
+                switch (empCheck)
+                {
+                    case IS_PART_TIME:
+                        empHrs = 4;
+                        break;
+                    case IS_FULL_TIME:
+                        empHrs = 8;
+                        break;
+                    default:
+                        empHrs = 0;
+                        break;
+                }
+                totalEmpHrs += empHrs;
+                Console.WriteLine("Days#: " + totalworkingdays + " Emp Hrs : " + empHrs);
+            }
+            int totalEmpWage = totalEmpHrs * EMP_RATE_PER_HOUR;
+
+
+            Console.WriteLine("Total Emp Wage: " + totalEmpWage);
+        }
+
+
     }
 
 }   

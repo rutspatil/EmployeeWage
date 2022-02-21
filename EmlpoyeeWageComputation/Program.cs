@@ -16,8 +16,8 @@ namespace EmlpoyeeWageComputation
             //emp.EmpWage();
             //emp.PartTime();
             //emp.CalculateWageSwitch();
-            emp.CalculateWagesFor20DaysInMonth();
-
+            //emp.CalculateWagesFor20DaysInMonth();
+            emp.CalculateWageTill100HrsOr20IsReached();
         }
     }
 }
